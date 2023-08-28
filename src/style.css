@@ -1,0 +1,183 @@
+:root{
+
+    --red:#FF1313;
+    --bg-color:#093d85;
+    --text-blue-main:#0C4CA3;
+    --text-gray-sub:#8F8E8E;
+}
+ 
+
+.sub-text{
+    color: var(--text-gray-sub);
+    font-size: 16px;
+}
+.red-text{
+    color: var(--red);
+}
+.main-text{
+    color: var(--text-blue-main);
+}
+
+
+.dis-para{
+    color: #8E8E8E;
+    font-size: 16px;
+    
+}
+
+
+.header-top-bar {
+    background-color: #EBEDF9;
+    font-size: 13px;
+}
+
+.btn-brown{
+    background-color: #9C0505 !important;
+    color: white !important;
+}
+
+body {
+    font-size: 14px;
+    /* overflow-y: hidden; */
+}
+
+.category-bar-Item:hover {
+    background-color:var(--bg-color);
+    transition-duration: 300ms;
+    cursor: pointer;
+}
+
+
+
+/* Add fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadedown {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.menu-list.fade-in {
+    animation: fadeIn 1s ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+.fade-down {
+    animation: fadedown 1s ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.aboutUs-short-icon{
+    font-size: 2.5rem;
+    color:var(--red);
+}
+.aboutUs-short-content h3{
+    color: var(--text-blue-main);
+    
+}
+.aboutUs-short-content p{
+    color: var(--text-gray-sub);
+    
+}
+
+.color-box{
+    width: 30px ;
+    height: 30px;
+    border: 1px solid white;
+}
+
+.color-box-carbon{
+    width: 30px ;
+    height: 30px;
+    border: 1px solid white;
+    background-image: url("../resources/carbon.png");
+    background-size: 30px 30px;
+}
+
+.contact-field{
+    width: 100%;
+    background: transparent;
+    border:none;
+    border-bottom:2px solid #0d6efd;
+    padding: 7px;
+    color:rgb(188, 186, 186)
+}
+
+.contact-field:focus {
+    outline: none;
+  }
+
+  /* .contact-bg{
+    background-image: url("./resources/contact-form-bg.jpeg");
+    background-size: 100% auto;
+    background-position: top;
+    background-repeat: no-repeat;
+  } */
+
+
+
+/* Styles for screens smaller than 600px */
+@media (max-width: 600px) {
+    .latestProduct{
+        overflow: scroll !important;
+    }
+    .aboutUs-short-icon{
+        font-size: 2rem;
+    }
+  }
+  
+  /* Styles for screens between 600px and 900px */
+  @media (min-width: 600px) and (max-width: 900px) {
+
+    .aboutUs-short-content h3{
+        font-size: 1.5rem !important;
+    }
+    .aboutUs-short-content p{
+        font-size: 0.8rem !important;
+    }
+    .aboutUs-short-icon{
+        font-size: 2rem;
+    }
+    .sub-text{
+        font-size: 0.8rem !important;
+    }
+    .latestProduct{
+        overflow: hidden !important;
+    }
+
+  }
+  
+  /* Styles for screens larger than 900px */
+  @media (min-width: 900px) {
+    .aboutUs-short-content h3{
+        font-size: 1.5rem !important;
+    }
+    .aboutUs-short-content p{
+        font-size: 0.8rem !important;
+    }
+    .sub-text{
+        font-size: 1rem !important;
+    }
+    .aboutUs-short-icon{
+        font-size: 2rem;
+    }
+    .latestProduct{
+        overflow: hidden !important;
+    }
+  }
