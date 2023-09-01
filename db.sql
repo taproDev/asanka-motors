@@ -1,5 +1,5 @@
 -- MySQL Workbench Synchronization
--- Generated: 2023-08-28 23:33
+-- Generated: 2023-09-01 15:16
 -- Model: New Model
 -- Version: 1.0
 -- Project: Name of the project
@@ -23,8 +23,7 @@ DROP FOREIGN KEY `fk_color_has_product_color1`,
 DROP FOREIGN KEY `fk_color_has_product_product1`;
 
 ALTER TABLE `asanka`.`product` 
-CHARACTER SET = utf8 , COLLATE = utf8_general_ci ,
-DROP COLUMN `productcol`;
+CHARACTER SET = utf8 , COLLATE = utf8_general_ci ;
 
 ALTER TABLE `asanka`.`productType` 
 CHARACTER SET = utf8 , COLLATE = utf8_general_ci ;
@@ -40,6 +39,13 @@ CHARACTER SET = utf8 , COLLATE = utf8_general_ci ;
 
 ALTER TABLE `asanka`.`color_has_product` 
 CHARACTER SET = utf8 , COLLATE = utf8_general_ci ;
+
+CREATE TABLE IF NOT EXISTS `asanka`.`admin` (
+  `email` VARCHAR(50) NOT NULL,
+  `password` VARCHAR(50) NULL DEFAULT NULL,
+  PRIMARY KEY (`email`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 ALTER TABLE `asanka`.`product` 
 ADD CONSTRAINT `fk_product_productType`
