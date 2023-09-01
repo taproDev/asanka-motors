@@ -19,6 +19,8 @@
 <!-- custome js -->
 <script src="../src/API/search.js"></script>
 <script src="../../aos/aos.js"></script>
+<script src="../src/API/script.js"></script>
+<script src="../src/API/insert.js"></script>
 
 <script>
     AOS.init();

@@ -23,7 +23,7 @@
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
  
-  <div class="container-fluid">
+  <div class="container-fluid" style="overflow-x: hidden;">
     <div class="row">
     <div class="col-12 p-3 bg-dark text-light h3 text-center font-weight-bold d-flex justify-content-around" style="margin-bottom: 0 !important;">
       <a href="./adminPanel.php" class=" text-light fw-bold">DashBoard</a>
