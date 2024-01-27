@@ -1,10 +1,11 @@
-import React from 'react';  // Import React explicitly
+import React from 'react'; 
 import "./App.css";
+import AppRouter from './components/pages/index.tsx';
 
 const App: React.FC = () => {
   return (
     <>
-      <h1>sahan</h1>
+      <AppRouter/>
     </>
   );
 }
