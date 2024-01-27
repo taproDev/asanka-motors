@@ -1,3 +1,6 @@
-import '../../../public/config';
+import config from './config';
 
-export const WEB_NAME = config.webName
+export const WEBNAME = config.webName;
+export const FACEBOOK = config.facebook;
+export const WHATSAPP = config.whatsapp;
+export const EMAIL = config.email;

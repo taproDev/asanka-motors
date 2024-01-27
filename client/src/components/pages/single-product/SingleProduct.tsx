@@ -1,11 +1,9 @@
 import React from 'react';
 
-const SingleProduct = () => {
+export const SingleProduct = () => {
   return(
     <>
     single product
     </>
   )
 };
-
-export default SingleProduct;
