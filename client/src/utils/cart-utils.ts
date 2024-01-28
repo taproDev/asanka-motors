@@ -1,14 +1,15 @@
 interface CartItem {
   productId: number;
   price: number;
+  qty:number;
 }
 
 let cartItems: CartItem[] = [];
 
 //cart items add/remove session storage
 export const useCart = () => {
-  const addToCart = (productId: number, price: number) => {
-    const newItem: CartItem = { productId, price };
+  const addToCart = (productId: number, price: number , qty:number = 1) => {
+    const newItem: CartItem = { productId, price , qty };
     cartItems.push(newItem);
     updateSessionStorage()
 
@@ -30,3 +31,12 @@ export const useCart = () => {
 
   return { cartItems, addToCart, removeFromCart };
 };
+
+
+//read session data
+export const getcartItemsSessionData = ()=>{
+  const cartItemsString = sessionStorage.getItem("cartItems");
+  const cartItems = cartItemsString ? JSON.parse(cartItemsString) : [];
+
+  return {cartItems};
+}

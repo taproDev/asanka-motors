@@ -3,7 +3,7 @@ import { Cart, CartFill } from "react-bootstrap-icons";
 
 //@ts-ignore
 import img from "../../../assets/product/img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg";
-import { useCart } from "../../../utils/cart-utils.ts";
+import { useCart , getcartItemsSessionData } from "../../../utils/cart-utils.ts";
 
 interface itemCardProp {
   title: string;
@@ -19,9 +19,11 @@ export const Itemcard = ({
   productImage,
 }: itemCardProp) => {
 
-  const [isCartAdded, setIsCartAdded] = useState(false);
   //cart item adding and emoving
   const { addToCart, removeFromCart } = useCart();
+  const {cartItems} = getcartItemsSessionData();
+
+  const [isCartAdded, setIsCartAdded] = useState(false);
 
   const handleCartClick = (pid: number, price: number) => {
     setIsCartAdded(!isCartAdded);
