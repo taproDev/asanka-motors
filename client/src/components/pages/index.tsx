@@ -4,6 +4,9 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { Footer, NavBar } from "../common/index.ts";
 import { HomePage, SingleProduct } from "./path.ts";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 const AppRouter = () => {
   return (
     <Router>

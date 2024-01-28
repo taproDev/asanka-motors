@@ -11,7 +11,19 @@ import {
   Search,
   Whatsapp,
 } from "react-bootstrap-icons";
-import { EMAIL, FACEBOOK, WHATSAPP } from "../../constants/AppConstants.ts";
+import {
+  EMAIL,
+  FACEBOOK,
+  WEBNAME,
+  WHATSAPP,
+} from "../../constants/AppConstants.ts";
+
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
 export const NavBar = () => {
   return (
@@ -138,43 +150,51 @@ export const NavBar = () => {
             </div>
           </div>
         </div>
-        <div className="col-12 bg-primary text-white">
-          <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-            <div className="container-fluid">
-              {/* Navbar Toggle Button */}
+        <div className="d-flex justify-content-lg-center justify-content-between mx-2">
+          <div className="d-lg-none text-uppercase fw-bolder fs-2">
+            {WEBNAME}
+          </div>
+          <nav className="navbar navbar-expand-lg bg-white">
+            <div className="container d-flex">
               <button
                 className="navbar-toggler"
                 type="button"
-                data-toggle="collapse"
-                data-target="#menuList"
-                aria-controls="menuList"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
                 aria-expanded="false"
                 aria-label="Toggle navigation"
               >
-                <List className="bi bi-list text-white fs-3 fw-bold" />
+                <span className="navbar-toggler-icon"></span>
               </button>
-
-              {/* Responsive Navbar Menu */}
-              <div className="col-12 collapse navbar-collapse" id="menuList">
-                <div className="navbar-nav d-flex justify-content-space">
-                  <Link to="/" className="nav-link" style={{ color: "white" }}>
-                    <List size={18} className="me-1" />
-                    All Product
-                  </Link>
-                  <Link to="/" className="nav-link" style={{ color: "white" }}>
-                    Bikes
-                  </Link>
-                  <Link to="/" className="nav-link" style={{ color: "white" }}>
-                    Helmet <CaretDownFill size={18} className="ms-1" />
-                  </Link>
-                  <Link to="/" className="nav-link" style={{ color: "white" }}>
-                    Three Wheel <CaretDownFill size={18} className="ms-1" />
-                  </Link>
-                  <Link to="/" className="nav-link" style={{ color: "white" }}>
-                    Modification Parts{" "}
-                    <CaretDownFill size={18} className="ms-1" />
-                  </Link>
-                </div>
+              <div className="collapse navbar-collapse" id="navbarNav">
+                <ul className="navbar-nav">
+                  <li className="nav-item">
+                    <a className="nav-link active" aria-current="page" href="#">
+                      All Product
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="#">
+                      Bike
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="#">
+                      Helmet
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link " href="#">
+                      Three wheel
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link " href="#">
+                      Modification Parts
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
           </nav>
