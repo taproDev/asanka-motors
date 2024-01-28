@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // @ts-ignore
 import logo from "../../../assets/resources/logo.png";
@@ -11,8 +11,18 @@ import {
 } from "react-bootstrap-icons";
 import { EMAIL, FACEBOOK, WHATSAPP } from "../../constants/AppConstants.ts";
 import { QuickNavbar } from "./nav-quick-filter.tsx";
+import { useCart } from "../../../utils/cart-utils.ts";
 
 export const NavBar = () => {
+  const { cartItems , addToCart , removeFromCart } = useCart();
+  const [cartItemsNumber, setCartItemsNumber] = useState<number>(0);
+
+  useEffect(() => {
+    setCartItemsNumber(cartItems.length);
+    console.log("data change");
+    
+  }, [cartItems, addToCart , removeFromCart]);
+
   return (
     <>
       <div className="container-fluid col-12 px-0">
@@ -114,7 +124,7 @@ export const NavBar = () => {
                       <CartCheckFill size={25} />
                     </span>
                     <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                      3
+                      {cartItemsNumber}
                     </span>
                   </Link>
                   <span className="fw-bold ms-3">Rs:2500.00</span>
