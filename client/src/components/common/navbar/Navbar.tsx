@@ -1,43 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // @ts-ignore
 import logo from "../../../assets/resources/logo.png";
 import {
-  CaretDownFill,
   CartCheckFill,
   EnvelopeAt,
   Facebook,
-  List,
   Search,
   Whatsapp,
 } from "react-bootstrap-icons";
-import {
-  EMAIL,
-  FACEBOOK,
-  WEBNAME,
-  WHATSAPP,
-} from "../../constants/AppConstants.ts";
-
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import { EMAIL, FACEBOOK, WHATSAPP } from "../../constants/AppConstants.ts";
+import { QuickNavbar } from "./nav-quick-filter.tsx";
 
 export const NavBar = () => {
   return (
     <>
       <div className="container-fluid col-12 px-0">
         <div
-          className="col-12 header-top-bar text-black-50 d-none d-lg-block"
+          className="col-12 header-top-bar text-black-50 "
           data-aos="fade-down"
           data-aos-duration="800"
           data-aos-delay="100"
           data-aos-once="true"
         >
-          <div className="row">
-            <div className="col-5 offset-1 d-flex align-items-center">
+          <div className="row col-12 d-flex flex-column flex-lg-row justify-content-lg-center mx-auto ">
+            <div className="col-lg-5 col-12 d-flex justify-content-center justify-content-lg-start align-items-start mt-3">
               <Link to="/" className="text-decoration-none text-black-50 me-2">
                 Home
               </Link>
@@ -73,15 +60,15 @@ export const NavBar = () => {
                 <EnvelopeAt size={19} />
               </a>
             </div>
-            <div className="col-5 text-end">
+            <div className="col-lg-5 col-12 text-lg-end text-center mt-3">
               Premium Quality, Unbeatable Price: Your Source for the Best Parts!
             </div>
           </div>
         </div>
         <div className="col-12 p-3 ">
           <div className="row">
-            <div className="col-10 offset-1">
-              <div className="row">
+            <div className="col-12">
+              <div className="row d-flex align-items-center  justify-content-around">
                 <div className="col-6 col-lg-3">
                   <img
                     src={logo}
@@ -94,7 +81,7 @@ export const NavBar = () => {
                   />
                 </div>
 
-                <div className="col-4 offset-1 d-none d-lg-block">
+                <div className="col-lg-4 col-10 offset-1 d-none d-lg-block">
                   <div
                     className="input-group mt-2"
                     data-aos="fade-down"
@@ -113,7 +100,7 @@ export const NavBar = () => {
                 </div>
 
                 <div
-                  className="col-lg-3 col-5 text-end offset-1"
+                  className="col-lg-2 text-end col-5 text-end offset-1"
                   data-aos="fade-down"
                   data-aos-duration="800"
                   data-aos-delay="100"
@@ -130,74 +117,29 @@ export const NavBar = () => {
                       3
                     </span>
                   </Link>
-                  <span className="fw-bold d-none d-lg-inline ms-3">
-                    Rs:2500.00
-                  </span>
+                  <span className="fw-bold ms-3">Rs:2500.00</span>
                 </div>
 
-                <div className="col-12 d-block d-lg-none">
-                  <div className="input-group mt-2">
+                <div className="col-12 d-flex align-items-center d-block d-lg-none">
+                  <div className="input-group">
                     <input
                       type="text"
-                      className="form-control form-control-sm border-1"
+                      className="form-control form-control-sm border-1 w-50"
+                      id="dashboard-searching-bar"
                     />
-                    <button className=" btn btn-sm btn-primary">
-                      <i className="bi bi-search"></i>
+                    <button className=" btn btn-primary px-2">
+                      <Search size={20} />
                     </button>
                   </div>
+
+                  <QuickNavbar />
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="d-flex justify-content-lg-center justify-content-between mx-2">
-          <div className="d-lg-none text-uppercase fw-bolder fs-2">
-            {WEBNAME}
+          <div className="d-none d-lg-block">
+            <QuickNavbar />
           </div>
-          <nav className="navbar navbar-expand-lg bg-white">
-            <div className="container d-flex">
-              <button
-                className="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span className="navbar-toggler-icon"></span>
-              </button>
-              <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav">
-                  <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="#">
-                      All Product
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      Bike
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      Helmet
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link " href="#">
-                      Three wheel
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link " href="#">
-                      Modification Parts
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
         </div>
       </div>
     </>
