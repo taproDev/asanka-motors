@@ -19,8 +19,9 @@ export const LatestItem = () => {
                         <Itemcard title={"test product with FREE table and free data giv it with us same free"} price={1000} productid={30} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"}/>
                         <Itemcard title={"test product with FREE table and free data giv it with us same free"} price={1000} productid={40} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"}/>
                         <Itemcard title={"test product with FREE table and free data giv it with us same free"} price={1000} productid={50} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"}/>
-                        <Itemcard title={"test product with FREE table and free data giv it with us same free"} price={1000} productid={60} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"}/><Itemcard title={"test product"} price={0} productid={0} productImage={"../../../../assets/product/img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"}/>
-                        <Itemcard title={"test product with FREE table and free data giv it with us same free"} price={1000} productid={70} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"}/>
+                        <Itemcard title={"test product with FREE table and free data giv it with us same free"} price={1000} productid={60} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"}/>
+                        <Itemcard title={"test product with FREE table and free data giv it with us same free"} price={1000} productid={70} productImage={"../../../../assets/product/img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"}/>
+                        <Itemcard title={"test product with FREE table and free data giv it with us same free"} price={1000} productid={80} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"}/>
                 </div>
             </div>
         </div>

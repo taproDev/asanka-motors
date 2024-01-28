@@ -5,11 +5,12 @@ interface CartItem {
 
 let cartItems: CartItem[] = [];
 
+//cart items add/remove session storage
 export const useCart = () => {
   const addToCart = (productId: number, price: number) => {
     const newItem: CartItem = { productId, price };
     cartItems.push(newItem);
-    // updateLocalStorage();
+    updateSessionStorage()
 
   };
 
@@ -17,17 +18,15 @@ export const useCart = () => {
     const index = cartItems.findIndex(item => item.productId === productId);
     if (index !== -1) {
       cartItems.splice(index, 1);
-      // updateLocalStorage();
+      updateSessionStorage()
     } else {
       alert("Something went wrong, Please try again!");
     }
   };
 
-  console.log(cartItems);
-  
+  const updateSessionStorage = () => {
+    sessionStorage.setItem("cartItems", JSON.stringify(cartItems));
+  };
 
-  // const updateLocalStorage = () => {
-  //   localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  // };
   return { cartItems, addToCart, removeFromCart };
 };
