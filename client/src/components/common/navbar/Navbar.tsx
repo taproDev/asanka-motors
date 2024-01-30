@@ -17,12 +17,6 @@ export const NavBar = () => {
   const { cartItems , addToCart , removeFromCart } = useCart();
   const [cartItemsNumber, setCartItemsNumber] = useState<number>(0);
 
-  useEffect(() => {
-    setCartItemsNumber(cartItems.length);
-    console.log("data change");
-    
-  }, [cartItems, addToCart , removeFromCart]);
-
   return (
     <>
       <div className="container-fluid col-12 px-0">

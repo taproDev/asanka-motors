@@ -21,8 +21,6 @@ export const Itemcard = ({
 
   //cart item adding and emoving
   const { addToCart, removeFromCart } = useCart();
-  const {cartItems} = getcartItemsSessionData();
-
   const [isCartAdded, setIsCartAdded] = useState(false);
 
   const handleCartClick = (pid: number, price: number) => {
