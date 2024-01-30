@@ -58,7 +58,7 @@ export const Itemcard = ({
         data-aos-once="true"
       >
         <a href="singleproduct?id=20">
-        <img className="w-75 rounded" src={imageSrc} alt={title} />
+        <img className="w-75 img-fluid rounded" src={imageSrc} alt={title} />
         </a>
         <div className="product-details text-start">
           <h2 className="sub-text fw-bold fs-6 mx-5 mt-3">

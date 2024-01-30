@@ -4,3 +4,6 @@ export * from "./LatestItem.tsx";
 export * from "./Helmet.tsx";
 export * from "./Bike.tsx";
 export * from "./ThreeWheel.tsx";
+export * from "./Partnership.tsx";
+export * from "./Customer.tsx";
+export * from "./ContactUs.tsx";
