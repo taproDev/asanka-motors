@@ -14,14 +14,14 @@ export const LatestItem = () => {
         <div className="row">
             <div className="col-12 ">
                 <div className="row d-flex flex-nowrap flex-md-wrap justify-content-center flex-row text-center pb-4"  style={{ overflowX: 'scroll' }}>
-                        <Itemcard title={"test product with FREE table and free data giv it with us same free"} price={1000} productid={10} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"}/>
-                        <Itemcard title={"test product with FREE table and free data giv it with us same free"} price={1000} productid={20} productImage={"img_6561abeab960d_a7e29568-0e22-46e6-82d1-54bd4b234506.jpeg"}/>
-                        <Itemcard title={"test product with FREE table and free data giv it with us same free"} price={1000} productid={30} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"}/>
-                        <Itemcard title={"test product with FREE table and free data giv it with us same free"} price={1000} productid={40} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"}/>
-                        <Itemcard title={"test product with FREE table and free data giv it with us same free"} price={1000} productid={50} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"}/>
-                        <Itemcard title={"test product with FREE table and free data giv it with us same free"} price={1000} productid={60} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"}/>
-                        <Itemcard title={"test product with FREE table and free data giv it with us same free"} price={1000} productid={70} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"}/>
-                        <Itemcard title={"test product with FREE table and free data giv it with us same free"} price={1000} productid={80} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"}/>
+                        <Itemcard title={"Test product with FREE table and free data giv it with us same free"} price={1000} productid={10} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"} type={"row"}/>
+                        <Itemcard title={"Test product with FREE table and free data giv it with us same free"} price={1000} productid={20} productImage={"img_6561abeab960d_a7e29568-0e22-46e6-82d1-54bd4b234506.jpeg"} type={"row"}/>
+                        <Itemcard title={"Test product with FREE table and free data giv it with us same free"} price={1000} productid={30} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"} type={"row"}/>
+                        <Itemcard title={"Test product with FREE table and free data giv it with us same free"} price={1000} productid={40} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"} type={"row"}/>
+                        <Itemcard title={"Test product with FREE table and free data giv it with us same free"} price={1000} productid={50} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"} type={"row"}/>
+                        <Itemcard title={"Test product with FREE table and free data giv it with us same free"} price={1000} productid={60} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"} type={"row"}/>
+                        <Itemcard title={"Test product with FREE table and free data giv it with us same free"} price={1000} productid={70} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"} type={"row"}/>
+                        <Itemcard title={"Test product with FREE table and free data giv it with us same free"} price={1000} productid={80} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"} type={"row"}/>
                 </div>
             </div>
         </div>

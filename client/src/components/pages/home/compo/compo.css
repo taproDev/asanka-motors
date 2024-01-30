@@ -10,3 +10,43 @@
     color:gray;
     
 }
+
+/* Default styling for all devices */
+.home-page-helmet-section {
+    margin: 0 1.5rem;
+    text-align: center;
+}
+.home-page-bike-section {
+    margin: 0 1.5rem;
+    text-align: center;
+}
+.home-page-3wheel-section {
+    margin: 0 1.5rem;
+    text-align: center;
+}
+
+/* Styling for small devices (e.g., mobile phones) */
+@media (min-width: 576px) {
+    .home-page-helmet-section {
+        margin-left: 2.5rem;
+        text-align: start;
+    }
+    .home-page-bike-section {
+        margin-left: 2.5rem;
+        text-align: start;
+    }
+    .home-page-3wheel-section {
+        margin-left: 2.5rem;
+        text-align: start;
+    }
+}
+
+/* Styling for medium devices (e.g., tablets) */
+@media (min-width: 768px) {
+    /* Add specific styles for medium devices if needed */
+}
+
+/* Styling for large devices (e.g., desktops) */
+@media (min-width: 992px) {
+    /* Add specific styles for large devices if needed */
+}
