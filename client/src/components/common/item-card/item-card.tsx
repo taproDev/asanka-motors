@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Cart, CartFill } from "react-bootstrap-icons";
 
 //@ts-ignore
@@ -22,6 +22,8 @@ export const Itemcard = ({
   //cart item adding and emoving
   const { addToCart, removeFromCart } = useCart();
   const [isCartAdded, setIsCartAdded] = useState(false);
+  const [imageSrc, setImageSrc] = useState<string | null>(null);
+
 
   const handleCartClick = (pid: number, price: number) => {
     setIsCartAdded(!isCartAdded);
@@ -31,6 +33,19 @@ export const Itemcard = ({
   const onBuyNowClick = (productImage: String) => {
     console.log(productImage);
   };
+
+  useEffect(() => {
+    const loadImage = async () => {
+      try {
+        const imageModule = await import(`../../../assets/product/${productImage}`);
+        setImageSrc(imageModule.default);
+      } catch (error) {
+        console.error("Error loading image:", error);
+      }
+    };
+
+    loadImage();
+  }, [productImage]);
 
   return (
     <div
