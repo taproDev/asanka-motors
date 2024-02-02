@@ -23,13 +23,14 @@ if (isset($_GET['id'])) {
         // Fetch all the images for the product
         $images = [];
         foreach ($search_prod_rs as $row) {
-            $images[] = $row['path']; 
+            $images[] = $row['path'];
         }
 
-        $color = [];
+        $colorArray = [];
         foreach ($search_prod_clr_rs as $row) {
-            $color[] = $row['color']; 
+            $colorArray[] = ['name' => $row['color'],'code' => $row['code']];
         }
+
 
         $productData = [
             'name' => $search_prod_data['name'],
@@ -40,7 +41,7 @@ if (isset($_GET['id'])) {
             'vehicle' => $search_prod_data['vtype'],
             'sampleDiscription' => $search_prod_data['samplediscription'],
             'imageArray' => $images,
-            'colorArray'=>$color
+            'colorArray' => $colorArray
         ];
 
         //JASON
@@ -48,8 +49,10 @@ if (isset($_GET['id'])) {
             "Data" => $productData,
         );
         echo json_encode($data);
-    };
+    }
+    ;
 } else {
     load_err_page();
-};
+}
+;
 ?>

@@ -13,7 +13,7 @@ interface ISingleProduct {
   vehicle: String;
   sampleDiscription: String;
   imageArray: String[];
-  colorArray: String[];
+  colorArray: { name: string; code: string }[];
 }
 
 export const SingleProduct = () => {
@@ -105,8 +105,45 @@ export const SingleProduct = () => {
                   </div>
 
                   <div>
-                    <p className="text-center mt-3">{productData.sampleDiscription}</p>
+                    <p className="text-center mt-3">
+                      {productData.sampleDiscription}
+                    </p>
                     <p className="text-center mt-5">{productData.desciption}</p>
+                  </div>
+
+                  <div className="d-flex mt-5 flex-column flex-md-row">
+                    <div className="col-12 col-md-4">
+                      <ul>
+                        <li>Vehical Type : {productData.vehicle}</li>
+                        <li>Product Type : {productData.type}</li>
+                      </ul>
+
+                      <label>Colors : </label>
+                      <ul>
+                        {productData.colorArray.map((color, index) => (
+                          <li key={index} className="d-flex">
+                            <div
+                              className="color-circle"
+                              style={{
+                                backgroundColor: color.code,
+                                width: "20px",
+                                height: "20px",
+                                borderRadius: "50%",
+                                margin: "5px",
+                              }}
+                            ></div>
+                            <span>{color.name}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="col-12 col-md-8">
+                      <h1 className="text-center fw-bolder">Rs : {productData.price}.00</h1>
+                      <div>
+                        
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
