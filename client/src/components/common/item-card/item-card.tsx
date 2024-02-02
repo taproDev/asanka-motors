@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Cart, CartFill } from "react-bootstrap-icons";
+import { Cart, CartFill, Link } from "react-bootstrap-icons";
 
 //@ts-ignore
-import { useCart, getcartItemsSessionData } from "../../../utils/cart-utils.ts";
+import { useCart } from "../../../utils/cart-utils.ts";
+
+import "./itemcard.css";
 
 interface itemCardProp {
   title: string;
@@ -10,6 +12,7 @@ interface itemCardProp {
   productid: number;
   productImage: string;
   type: string;
+  sampleDis?: string;
 }
 
 export const Itemcard = ({
@@ -18,11 +21,12 @@ export const Itemcard = ({
   productid,
   productImage,
   type = "row",
+  sampleDis,
 }: itemCardProp) => {
   //cart item adding and emoving
   const { addToCart, removeFromCart } = useCart();
   const [isCartAdded, setIsCartAdded] = useState(false);
-  const [imageSrc, setImageSrc] = useState<string>('');
+  const [imageSrc, setImageSrc] = useState<string>("");
 
   const handleCartClick = (pid: number, price: number) => {
     setIsCartAdded(!isCartAdded);
@@ -57,20 +61,28 @@ export const Itemcard = ({
         data-aos-delay="100"
         data-aos-once="true"
       >
-        <a href="singleproduct?id=20">
-        <img className="w-75 img-fluid rounded" src={imageSrc} alt={title} />
-        </a>
-        <div className="product-details text-start">
-          <h2 className="sub-text fw-bold fs-6 mx-5 mt-3">
-            {title}
-          </h2>
-          <h3 className="text-dark fw-bold mx-5 fs-3">
+        <div className="image-container">
+          <img
+            className="w-75 img-fluid rounded product-img"
+            src={imageSrc}
+            alt={title}
+          />
+          <div className="overlay">
+            <a href={`./product?id=${productid}`} className="visit-link">
+              <Link />
+            </a>
+          </div>
+        </div>
+        <div className="product-details text-center">
+          <h2 className="text-title mx-4 mt-3">{title}</h2>
+          <p className="mx-4 mt-2">{sampleDis}</p>
+          <h3 className="text-price mx-5 fs-3">
             Rs: <span>{price.toFixed(2)}</span>
           </h3>
         </div>
         <div className="d-flex flex-row justify-content-center align-items-center mt-2">
           <button
-            className="btn btn-sm pe-auto border-0 rounded"
+            className="btn btn-sm pe-auto border-0 cart-icon"
             onClick={() => {
               handleCartClick(productid, price);
             }}
@@ -82,7 +94,7 @@ export const Itemcard = ({
             )}
           </button>
           <button
-            className="ms-2 px-2 pe-auto btn btn-sm btn-primary border-0 rounded"
+            className="ms-2 px-2 pe-auto btn btn-sm btn-primary border-0 buynow-btn"
             onClick={() => {
               onBuyNowClick(productImage);
             }}
@@ -95,32 +107,37 @@ export const Itemcard = ({
   } else {
     return (
       <div
-        className="col-12 col-lg-4 col-md-5 mx-auto d-flex p-0 my-2 d-flex align-items-center"
+        className="col-12 col-lg-4 mx-auto d-flex p-0 my-2 d-flex align-items-center"
         data-aos="fade-right"
         data-aos-duration="800"
         data-aos-delay="100"
         data-aos-once="true"
       >
-        <div className="col-5 mx-auto">
-          <a href="singleproduct?id=20">
+        <div className="col-6 mx-auto">
+          <div className="image-container">
             <img
-              className="img-fluid rounded"
+              className="me-1 img-fluid rounded product-img"
               src={imageSrc}
               alt={title}
-              style={{ height: "60%" , width:"80%" }}
+              style={{ height: "100%", width: "95%" }}
             />
-          </a>
+            <div className="overlay-2">
+              <a href={`product?id=${productid}`} className="visit-link">
+                <Link />
+              </a>
+            </div>
+          </div>
         </div>
-        <div className="">
-          <div className="text-start">
-            <h2 className="sub-text fs-6">
-              {title}
-            </h2>
-            <h3 className="text-dark fw-bold fs-6">
+
+        <div className=" me-3">
+          <div className="text-center">
+            <h2 className="text-title">{title}</h2>
+            <p>{sampleDis}</p>
+            <h3 className="text-price">
               Rs: <span>{price.toFixed(2)}</span>
             </h3>
           </div>
-          <div className="d-flex flex-row justify-content-start align-items-start mt-2">
+          <div className="d-flex flex-row justify-content-center align-items-start mt-1">
             <button
               className="btn btn-sm pe-auto border-0 rounded"
               onClick={() => {

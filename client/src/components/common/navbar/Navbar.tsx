@@ -17,6 +17,14 @@ export const NavBar = () => {
   const { cartItems , addToCart , removeFromCart } = useCart();
   const [cartItemsNumber, setCartItemsNumber] = useState<number>(0);
 
+  const handleContactClick = (id:string) => {
+    const targetElement = document.getElementById(id);
+
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <div className="container-fluid col-12 px-0">
@@ -34,15 +42,17 @@ export const NavBar = () => {
               </Link>
               |
               <Link
-                to="/single-product"
+                to="#contactUs"
                 className="text-decoration-none text-black-50 mx-2"
+                onClick={()=>{handleContactClick('contactUs')}}
               >
                 Contact
               </Link>
               |
               <Link
-                to="/aboutus"
+                to="#aboutUs"
                 className="text-decoration-none text-black-50 mx-2"
+                onClick={()=>{handleContactClick('aboutUs')}}
               >
                 About Us |
               </Link>

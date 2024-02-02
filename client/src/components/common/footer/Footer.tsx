@@ -1,4 +1,5 @@
 import React from "react";
+import { EMAIL, MOBILE_1, MOBILE_2 } from "../../constants/AppConstants.ts";
 
 export const Footer = () => {
 
@@ -47,11 +48,11 @@ export const Footer = () => {
                 </p>
 
                 <p className="product-para">
-                  +94 777998361 <br />
-                  +94 770545727
+                  {MOBILE_1}<br />
+                  {MOBILE_2}
                 </p>
 
-                <p>sahanmadusha001@gmail.com</p>
+                <p>{EMAIL}</p>
               </div>
 
               <div className="row d-flex flex-row justify-content-around col-12 col-md-4">
@@ -68,7 +69,7 @@ export const Footer = () => {
                   </span>
                   <br />
                   <br />
-                  <a href="./index.php" className="text-decoration-none">
+                  <a href="./" className="text-decoration-none">
                     <p className="product-para">Home</p>
                   </a>
                   <a href="./tyres.php" className="text-decoration-none">

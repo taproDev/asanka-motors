@@ -1,11 +1,10 @@
 <?php
 
 //globle data
-$domain = " https://asankamotors.lk/";
-$mobile = "0771617400";
-$email = "sahanmadusha001@gmail.com";
-$facebook="https://asankamotors.lk/";
+$_SERVER = "http://localhost:3000";
 
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin:'.$_SERVER.'');
 
 class Database {
     public static $connection;
@@ -13,8 +12,9 @@ class Database {
     public static function setUpConnection(){
 
         if(!isset(Database::$connection)){
-             //Database::$connection = new mysqli("localhost", "root", "sahan123","asanka","3306");
-               Database::$connection = new mysqli("localhost", "madurang_root", "No254@digana","madurang_asankatest");
+               //Database::$connection = new mysqli("localhost", "madurang_root", "No254@digana","madurang_asankatest");
+               Database::$connection = new mysqli("localhost", "root", "taprodb321","madurang_asankatest","3308");
+
 
 }
     }
@@ -33,6 +33,11 @@ class Database {
         return $resalt_set;
 
     }
+}
+
+function load_err_page(){
+    header('Location: ' . $_SERVER . '/error_page');
+    exit();
 }
 
 ?>

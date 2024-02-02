@@ -1,0 +1,31 @@
+.image-list{
+    overflow-y: scroll;
+    max-height: 44vh;
+    flex-grow: 1;
+}
+.test-class{
+    height: auto !important;
+}
+
+/* Styling for small devices (e.g., mobile phones) */
+@media (min-width: 576px) {
+    .image-list{
+        overflow-y: scroll;
+        max-height: 80vh;
+        flex-grow: 1;
+    }
+}
+
+/* Styling for medium devices (e.g., tablets) */
+@media (min-width: 768px) {
+    .image-list{
+        overflow-y: scroll;
+        max-height: 79vh;
+        flex-grow: 1;
+    }
+}
+
+/* Styling for large devices (e.g., desktops) */
+@media (min-width: 992px) {
+    /* Add specific styles for large devices if needed */
+}

@@ -17,10 +17,10 @@ export const HomePageThreeWheel = () => {
             <div className="row">
                 <div className="col-1-2 col-md-11 mx-auto">
                     <div className="row d-flex flex-wrap  justify-content-center flex-row text-center pb-4">
-                        <Itemcard title={"Test product with FREE table and free data giv it with us same free"} price={1000} productid={10} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"} type={'row'}/>
-                        <Itemcard title={"Test product with FREE table and free data giv it with us same free"} price={1000} productid={20} productImage={"img_6561abeab960d_a7e29568-0e22-46e6-82d1-54bd4b234506.jpeg"} type={'row'}/>
-                        <Itemcard title={"Test product with FREE table and free data giv it with us same free"} price={1000} productid={30} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"} type={'row'}/>
-                        <Itemcard title={"Test product with FREE table and free data giv it with us same free"} price={1000} productid={30} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"} type={'row'}/>
+                        <Itemcard title={"Test product with FREE table and free data giv it with us same free"} sampleDis={"sample discription data main data if the test product data"} price={1000} productid={10} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"} type={'row'}/>
+                        <Itemcard title={"Test product with FREE table and free data giv it with us same free"} sampleDis={"sample discription data main data if the test product data"} price={1000} productid={20} productImage={"img_6561abeab960d_a7e29568-0e22-46e6-82d1-54bd4b234506.jpeg"} type={'row'}/>
+                        <Itemcard title={"Test product with FREE table and free data giv it with us same free"} sampleDis={"sample discription data main data if the test product data"} price={1000} productid={30} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"} type={'row'}/>
+                        <Itemcard title={"Test product with FREE table and free data giv it with us same free"} sampleDis={"sample discription data main data if the test product data"} price={1000} productid={30} productImage={"img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg"} type={'row'}/>
                     </div>
                 </div>
             </div>
