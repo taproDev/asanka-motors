@@ -9,7 +9,7 @@ if (isset($_GET['id'])) {
         load_err_page();
     } else {
 
-        $search_prod_rs = Database::search("SELECT * , vehicletype.`type` AS vtype , producttype.`type` AS ptype FROM product
+        $search_prod_rs = Database::search("SELECT * , vehicletype.`type` AS vtype , producttype.`type` AS ptype , product.`id` AS pid FROM product
                                             INNER JOIN producttype ON product.productType_id = producttype.id
                                             INNER JOIN vehicletype ON product.vehicleType_id = vehicletype.id
                                             INNER JOIN images ON images.product_id = product.id
@@ -33,6 +33,7 @@ if (isset($_GET['id'])) {
 
 
         $productData = [
+            'id'=>$search_prod_data['pid'],
             'name' => $search_prod_data['name'],
             'partNumber' => $search_prod_data['partnum'],
             'price' => $search_prod_data['price'],

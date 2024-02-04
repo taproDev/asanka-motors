@@ -3,8 +3,14 @@ import { useLocation } from "react-router-dom";
 import { fetchProductData } from "../../../api/load-single-product.ts";
 import { Loading } from "../../common/loading/Loading.tsx";
 import "./singleProduct.css";
+import { CartItem } from "../../common/cart-item/CartItem.tsx";
+import { PaymentOption } from "../../common/index.ts";
+import { Cart } from "react-bootstrap-icons";
+import QtyItem from "../../common/item-qty/QtyItem.tsx";
+import { UseItemcardQty } from "../../../utils/item.qty-utils.ts";
 
 interface ISingleProduct {
+  id: number;
   name: String;
   partNumber: any;
   price: number | String;
@@ -58,6 +64,10 @@ export const SingleProduct = () => {
   const handleImageClick = (image: any) => {
     setMainImage(image);
   };
+
+  const handelBuyNow = () => {};
+
+  const { quantity, handleIncrease, handleDecrease } = UseItemcardQty();
 
   return (
     <>
@@ -139,9 +149,44 @@ export const SingleProduct = () => {
                     </div>
 
                     <div className="col-12 col-md-8">
-                      <h1 className="text-center fw-bolder">Rs : {productData.price}.00</h1>
-                      <div>
-                        
+                      <h1 className="text-center fw-bolder">
+                        Rs : {productData.price}.00
+                      </h1>
+
+                      {/* add cart and qty */}
+
+                      <div className=" mt-4">
+                        <div className="d-flex justify-content-center mt-3">
+                          <div className="mx-2">
+                            <CartItem
+                              productid={productData.id}
+                              price={productData.price}
+                              qty={quantity}
+                            />
+                          </div>
+                          <div className="mx-2">
+                            <QtyItem
+                              quantity={quantity}
+                              onIncrease={handleIncrease}
+                              onDecrease={handleDecrease}
+                            />
+                          </div>
+                        </div>
+                        <div className="mt-4 text-center">
+                          <h4>
+                            Total Amount <br />{" "}
+                            <span className="fs-5 fw-bold">
+                              Rs: {(productData.price as number) * quantity}.00
+                            </span>
+                            <br />
+                            <span className="text-danger fs-6">You are required to pay a delivery fee for courier service.</span>
+                          </h4>
+                        </div>
+                      </div>
+
+                      {/* payment option */}
+                      <div className="d-flex justify-content-center">
+                        <PaymentOption />
                       </div>
                     </div>
                   </div>

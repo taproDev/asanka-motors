@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Cart, CartFill, Link } from "react-bootstrap-icons";
-
-//@ts-ignore
-import { useCart } from "../../../utils/cart-utils.ts";
+import {
+  ArrowRight,
+  Link,
+} from "react-bootstrap-icons";
+import { useNavigate } from "react-router-dom";
 
 import "./itemcard.css";
+import { CartItem } from "../cart-item/CartItem.tsx";
 
 interface itemCardProp {
   title: string;
@@ -24,17 +26,11 @@ export const Itemcard = ({
   sampleDis,
 }: itemCardProp) => {
   //cart item adding and emoving
-  const { addToCart, removeFromCart } = useCart();
-  const [isCartAdded, setIsCartAdded] = useState(false);
   const [imageSrc, setImageSrc] = useState<string>("");
+  const navigate = useNavigate();
 
-  const handleCartClick = (pid: number, price: number) => {
-    setIsCartAdded(!isCartAdded);
-    isCartAdded ? removeFromCart(pid) : addToCart(pid, price);
-  };
-
-  const onBuyNowClick = (productImage: String) => {
-    console.log(productImage);
+  const onBuyNowClick = (productId: number | string) => {
+    navigate(`/product?id=${productId}`);
   };
 
   useEffect(() => {
@@ -81,25 +77,14 @@ export const Itemcard = ({
           </h3>
         </div>
         <div className="d-flex flex-row justify-content-center align-items-center mt-2">
+          <CartItem productid={productid} price={price} />
           <button
-            className="btn btn-sm pe-auto border-0 cart-icon"
+            className="ms-2 px-3 pe-auto btn btn-sm btn-primary border-0 buynow-btn fs-6"
             onClick={() => {
-              handleCartClick(productid, price);
+              onBuyNowClick(productid);
             }}
           >
-            {isCartAdded ? (
-              <CartFill className="text-danger fs-4 ms-1 pe-auto" />
-            ) : (
-              <Cart className="text-danger fs-4 ms-1 pe-auto" />
-            )}
-          </button>
-          <button
-            className="ms-2 px-2 pe-auto btn btn-sm btn-primary border-0 buynow-btn"
-            onClick={() => {
-              onBuyNowClick(productImage);
-            }}
-          >
-            Buy Now
+            see <ArrowRight className="fw-bold" />
           </button>
         </div>
       </div>
@@ -138,25 +123,14 @@ export const Itemcard = ({
             </h3>
           </div>
           <div className="d-flex flex-row justify-content-center align-items-start mt-1">
+            <CartItem productid={productid} price={price} />
             <button
-              className="btn btn-sm pe-auto border-0 rounded"
+              className="ms-2 px-3 pe-auto btn btn-sm btn-primary border-0 buynow-btn fs-6"
               onClick={() => {
-                handleCartClick(productid, price);
+                onBuyNowClick(productid);
               }}
             >
-              {isCartAdded ? (
-                <CartFill className="text-danger m-0 fs-4 pe-auto" />
-              ) : (
-                <Cart className="text-danger m-0 fs-4 pe-auto" />
-              )}
-            </button>
-            <button
-              className="ms-2 px-2 pe-auto btn btn-sm btn-primary border-0 rounded"
-              onClick={() => {
-                onBuyNowClick(productImage);
-              }}
-            >
-              Buy Now
+              see <ArrowRight className="fw-bold" />
             </button>
           </div>
         </div>
