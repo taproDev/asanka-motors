@@ -4,3 +4,4 @@ export * from "./item-card/item-card.tsx";
 export * from "./cart-item/CartItem.tsx";
 export * from "./payment-option/PaymentOption.tsx";
 export * from "./item-qty/QtyItem.tsx"
+export * from "./customer-form/CustomerForm.tsx";
