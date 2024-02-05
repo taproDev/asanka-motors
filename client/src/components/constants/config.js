@@ -9,7 +9,8 @@ const config = {
     mobile2:" +94 77 05 45 727",
 
     webLink:"http://localhost:3000/",
-    server:'http://localhost/app/asanka-motors'
+    server:'http://localhost/app/asanka-motors',
+    authReq:'asanak-auth'
   };
   
   export default config;

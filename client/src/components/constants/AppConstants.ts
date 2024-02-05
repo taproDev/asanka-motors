@@ -8,3 +8,4 @@ export const MOBILE_1 = config.mobile1;
 export const MOBILE_2 = config.mobile2;
 export const WEB_LINK = config.webLink;
 export const SERVER_LINK =  config.server;
+export const AUTH_REQ =  config.authReq;
