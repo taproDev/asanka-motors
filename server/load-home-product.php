@@ -11,11 +11,11 @@ if (isset($_POST['auth']) && $_POST["auth"] == $authReq) {
     $last_item_id_in_db = $search_f_l_id_data["max_id"]; //last prod id
 
 
-    //01.latest item - 6 (tempory load normal product data) - (need to load most orderd data)
+    //01.latest item - 8 (tempory load normal product data) - (need to load most orderd data)
     $search_latest_item_rs = Database::search("SELECT product.id, product.name, MAX(images.path) AS `path` ,
                                                product.samplediscription , product.price
                                                FROM product INNER JOIN images ON images.product_id = product.id
-                                               GROUP BY product.id, product.name LIMIT 6 ");
+                                               GROUP BY product.id, product.name LIMIT 8 ");
 
     $latestItemData = array();
     while ($row = $search_latest_item_rs->fetch_assoc()) {

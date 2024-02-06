@@ -48,7 +48,7 @@ export const Itemcard = ({
   if (type == "row") {
     return (
       <div
-        className="col-12 col-lg-3 col-md-5 my-3 mx-0 "
+        className="col-12 col-lg-3 col-md-5 my-3 mx-0"
         data-aos="fade-right"
         data-aos-duration="800"
         data-aos-delay="100"
@@ -56,10 +56,11 @@ export const Itemcard = ({
       >
         <div className="image-container">
           <img
-            className="w-75 img-fluid rounded product-img"
+            className="img-fluid rounded product-img"
             src={imageSrc}
             alt={title}
           />
+
           <div className="overlay">
             <a href={`./product?id=${productid}`} className="visit-link">
               <Link />
@@ -69,7 +70,7 @@ export const Itemcard = ({
         <div className="product-details text-center">
           <h2 className="text-title mx-4 mt-3">{title}</h2>
           <p className="mx-4 mt-2">{sampleDis}</p>
-          <h3 className="text-price mx-5 fs-3">
+          <h3 className="text-price mx-5 fs-4">
             Rs: <span>{price}.00</span>
           </h3>
         </div>
@@ -101,7 +102,7 @@ export const Itemcard = ({
               className="me-1 img-fluid rounded product-img"
               src={imageSrc}
               alt={title}
-              style={{ height: "100%", width: "95%" }}
+              style={{ height: "35vh", width: "95%" }}
             />
             <div className="overlay-2">
               <a href={`product?id=${productid}`} className="visit-link">

@@ -44,12 +44,12 @@
 
 .image-container:hover .overlay {
   opacity: 1;
-  transform: scale(1);
+  transform: scale(1.2);
 }
 
 .image-container:hover .overlay-2 {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1.2);
   }
   
 
@@ -64,4 +64,8 @@
 }
 .image-container:hover .product-img {
   transform: scale(1.2);
+}
+
+.rotate-vertical {
+  transform: rotate(90deg); /* Rotate the image 90 degrees clockwise */
 }
