@@ -18,7 +18,7 @@ import { load_eror } from "../../../utils/load_errror_page.ts";
 
 export const HomePage = () => {
   const [loading, setLoading] = useState(true);
-  const [productData, setProductData] = useState(null); // Initially set to null
+  const [productData, setProductData] = useState<any>(); // Initially set to null
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,8 +28,8 @@ export const HomePage = () => {
         await setProductData(data);
       } catch (error) {
         console.error("Error fetching data:", error);
-        load_eror()
-      }finally{
+        load_eror();
+      } finally {
         setLoading(false);
       }
     };
@@ -37,31 +37,27 @@ export const HomePage = () => {
     fetchData();
   }, []);
 
-
-  console.log(productData);
-  
-
   return (
     <>
       {loading ? (
         <Loading />
-      ) : (
+      ) : productData ? (
         <>
           <Curosal />
           {/* cuosal  */}
           <Service />
           {/* service */}
           <div className="container-fluid">
-            <LatestItem />
-            <HomePageHelmet />
-            <HomePageBike />
-            <HomePageThreeWheel />
+            <LatestItem ItemData={productData.latestItem} />
+            <HomePageHelmet ItemData ={productData.helmetItem}/>
+            <HomePageBike ItemData ={productData.bikeItem}/>
+            <HomePageThreeWheel ItemData ={productData.wheelItem} />
             <HomePatnership />
           </div>
           <HomePageCustomer />
           <ContactUs />
         </>
-      )}
+      ) : null}
     </>
   );
 };

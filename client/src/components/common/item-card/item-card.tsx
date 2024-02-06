@@ -70,7 +70,7 @@ export const Itemcard = ({
           <h2 className="text-title mx-4 mt-3">{title}</h2>
           <p className="mx-4 mt-2">{sampleDis}</p>
           <h3 className="text-price mx-5 fs-3">
-            Rs: <span>{price.toFixed(2)}</span>
+            Rs: <span>{price}.00</span>
           </h3>
         </div>
         <div className="d-flex flex-row justify-content-center align-items-center mt-2">
@@ -116,7 +116,7 @@ export const Itemcard = ({
             <h2 className="text-title">{title}</h2>
             <p>{sampleDis}</p>
             <h3 className="text-price">
-              Rs: <span>{price.toFixed(2)}</span>
+              Rs: <span>{price}.00</span>
             </h3>
           </div>
           <div className="d-flex flex-row justify-content-center align-items-start mt-1">
