@@ -28,6 +28,7 @@ export const SingleProduct = () => {
   const [loading, setLoading] = useState(true);
   const [mainImage, setMainImage] = useState();
   const [imageSrcArray, setImageSrcArray] = useState<string[]>([]);
+  const [secImage , setSecImage] = useState();
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -50,6 +51,7 @@ export const SingleProduct = () => {
           const loadedImages = await Promise.all(imagePromises);
           setImageSrcArray(loadedImages);
           setMainImage(loadedImages[0]);
+          setSecImage(loadedImages[1])
         }
       } catch (error) {
         console.log(error);
@@ -87,6 +89,12 @@ export const SingleProduct = () => {
                       src={mainImage}
                       alt={productData.name as string}
                       className="w-100"
+                    />
+                    <img
+                      src={mainImage}
+                      alt={productData.name as string}
+                      className="w-100 mt-2"
+                      style={{transform:"rotate(180deg)"}}
                     />
                   </div>
                   <div className="col-4 mx-auto d-flex align-items-start">

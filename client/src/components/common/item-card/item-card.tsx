@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ArrowRight, Link } from "react-bootstrap-icons";
+import { BoxArrowUpRight, Link } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
 
 import "./itemcard.css";
@@ -68,8 +68,8 @@ export const Itemcard = ({
           </div>
         </div>
         <div className="product-details text-center">
-          <h2 className="text-title mx-4 mt-3">{title}</h2>
-          <p className="mx-4 mt-2">{sampleDis}</p>
+          <h2 className="text-title mx-4 mt-3 text-wrapper">{title}</h2>
+          <p className="mx-4 mt-2 text-wrapper-sampledis">{sampleDis}</p>
           <h3 className="text-price mx-5 fs-4">
             Rs: <span>{price}.00</span>
           </h3>
@@ -82,7 +82,7 @@ export const Itemcard = ({
               onBuyNowClick(productid);
             }}
           >
-            see <ArrowRight className="fw-bold" />
+            see <BoxArrowUpRight className="fw-bold mb-1" />
           </button>
         </div>
       </div>
@@ -96,13 +96,13 @@ export const Itemcard = ({
         data-aos-delay="100"
         data-aos-once="true"
       >
-        <div className="col-6 mx-auto">
+        <div className="col-5 mx-auto">
           <div className="image-container">
             <img
               className="me-1 img-fluid rounded product-img"
               src={imageSrc}
               alt={title}
-              style={{ height: "35vh", width: "95%" }}
+              style={{ height: "38vh", width: "95%" }}
             />
             <div className="overlay-2">
               <a href={`product?id=${productid}`} className="visit-link">
@@ -112,10 +112,10 @@ export const Itemcard = ({
           </div>
         </div>
 
-        <div className=" me-3">
+        <div className=" me-1 col-6">
           <div className="text-center">
             <h2 className="text-title">{title}</h2>
-            <p>{sampleDis}</p>
+            <p className="text-wrapper-sampledis-1">{sampleDis}</p>
             <h3 className="text-price">
               Rs: <span>{price}.00</span>
             </h3>
@@ -128,7 +128,7 @@ export const Itemcard = ({
                 onBuyNowClick(productid);
               }}
             >
-              see <ArrowRight className="fw-bold" />
+              see <BoxArrowUpRight className="fw-bold mb-1" />
             </button>
           </div>
         </div>
