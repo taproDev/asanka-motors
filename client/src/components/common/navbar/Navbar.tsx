@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // @ts-ignore
 import logo from "../../../assets/resources/logo.png";
 import {
@@ -18,6 +18,7 @@ import { fetchSearchProductData } from "../../../api/load-search-data-nav.ts";
 export const NavBar = () => {
   const { cartItems, addToCart, removeFromCart } = useCart();
   const [cartItemsNumber, setCartItemsNumber] = useState<number>(0);
+  const navigate = useNavigate();
 
   const handleContactClick = (id: string) => {
     const targetElement = document.getElementById(id);
@@ -56,7 +57,18 @@ export const NavBar = () => {
     const filteredSuggestions = mockSuggestions.filter((suggestion: any) =>
       suggestion.name.toLowerCase().includes(searchValue.toLowerCase())
     );
-    setSuggestions(filteredSuggestions);    
+
+    setSuggestions(filteredSuggestions);
+  };
+
+  const optionClickHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedValue = e.target.value;
+    const selectedSuggestion: any = suggestions.find(
+      (suggestion: any) => suggestion.name === selectedValue
+    );
+    if (selectedSuggestion) {
+      navigate(`/product?id=${selectedSuggestion.id}`);
+    }
   };
 
   return (
@@ -163,10 +175,11 @@ export const NavBar = () => {
                       value={searchingItem}
                       onChange={searchItem}
                       list="suggestions-list"
+                      onSelect={optionClickHandle} // Add this line
                     />
                     <datalist id="suggestions-list">
-                      {suggestions.map((suggestion, index) => (
-                        <option key={index} value={suggestion} />
+                      {suggestions.map((suggestion: any) => (
+                        <option key={suggestion.id} value={suggestion.name} />
                       ))}
                     </datalist>
                   </div>
