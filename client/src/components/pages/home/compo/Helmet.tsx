@@ -48,7 +48,7 @@ export const HomePageHelmet = (props: IItemData) => {
                       price={data.price}
                       productid={data.id}
                       productImage={data.image}
-                      type={"row"}
+                      type={"col"}
                     />
                   ))
                 : null}
