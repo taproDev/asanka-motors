@@ -12,17 +12,51 @@ import {
 import { EMAIL, FACEBOOK, WHATSAPP } from "../../constants/AppConstants.ts";
 import { QuickNavbar } from "./nav-quick-filter.tsx";
 import { useCart } from "../../../utils/cart-utils.ts";
+import { load_eror } from "../../../utils/load_errror_page.ts";
+import { fetchSearchProductData } from "../../../api/load-search-data-nav.ts";
 
 export const NavBar = () => {
-  const { cartItems , addToCart , removeFromCart } = useCart();
+  const { cartItems, addToCart, removeFromCart } = useCart();
   const [cartItemsNumber, setCartItemsNumber] = useState<number>(0);
 
-  const handleContactClick = (id:string) => {
+  const handleContactClick = (id: string) => {
     const targetElement = document.getElementById(id);
 
     if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
+      targetElement.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const [searchingItem, setSearchingItem] = useState("");
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [mockSuggestions, setMockSuggestions] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const data = await fetchSearchProductData(searchingItem);
+        await setMockSuggestions(data.proddata);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        //load_eror();
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [searchingItem, setSearchingItem]);
+
+  const searchItem = (e: any) => {
+    const searchValue = e.target.value;
+    setSearchingItem(searchValue);
+
+    const filteredSuggestions = mockSuggestions.filter((suggestion: any) =>
+      suggestion.name.toLowerCase().includes(searchValue.toLowerCase())
+    );
+    setSuggestions(filteredSuggestions);    
   };
 
   return (
@@ -44,7 +78,9 @@ export const NavBar = () => {
               <Link
                 to="#contactUs"
                 className="text-decoration-none text-black-50 mx-2"
-                onClick={()=>{handleContactClick('contactUs')}}
+                onClick={() => {
+                  handleContactClick("contactUs");
+                }}
               >
                 Contact
               </Link>
@@ -52,7 +88,9 @@ export const NavBar = () => {
               <Link
                 to="#aboutUs"
                 className="text-decoration-none text-black-50 mx-2"
-                onClick={()=>{handleContactClick('aboutUs')}}
+                onClick={() => {
+                  handleContactClick("aboutUs");
+                }}
               >
                 About Us |
               </Link>
@@ -95,24 +133,6 @@ export const NavBar = () => {
                   />
                 </div>
 
-                <div className="col-lg-4 col-10 offset-1 d-none d-lg-block">
-                  <div
-                    className="input-group mt-2"
-                    data-aos="fade-down"
-                    data-aos-duration="800"
-                    data-aos-delay="100"
-                    data-aos-once="true"
-                  >
-                    <input
-                      type="text"
-                      className="form-control form-control border border-1 border-dark"
-                    />
-                    <button className=" btn btn-primary px-2">
-                      <Search size={20} />
-                    </button>
-                  </div>
-                </div>
-
                 <div
                   className="col-lg-2 text-end col-5 text-end offset-1"
                   data-aos="fade-down"
@@ -134,25 +154,28 @@ export const NavBar = () => {
                   <span className="fw-bold ms-3">Rs:2500.00</span>
                 </div>
 
-                <div className="col-12 d-flex align-items-center d-block d-lg-none">
-                  <div className="input-group">
+                <div className="col-12 d-flex align-items-baseline ">
+                  <div className="input-group w-50 mx-auto">
                     <input
                       type="text"
-                      className="form-control form-control-sm border-1 w-50"
+                      className="form-control form-control-sm border-1 border-dark mt-3 w-50"
                       id="dashboard-searching-bar"
+                      value={searchingItem}
+                      onChange={searchItem}
+                      list="suggestions-list"
                     />
-                    <button className=" btn btn-primary px-2">
-                      <Search size={20} />
-                    </button>
+                    <datalist id="suggestions-list">
+                      {suggestions.map((suggestion, index) => (
+                        <option key={index} value={suggestion} />
+                      ))}
+                    </datalist>
                   </div>
-
-                  <QuickNavbar />
+                  <div>
+                    <QuickNavbar />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="d-none d-lg-block">
-            <QuickNavbar />
           </div>
         </div>
       </div>
