@@ -32,7 +32,7 @@ const customerData = [
     note: `Welcome to our Latest Product Section, where innovation and
     excellence meet to bring you the cutting-edge solutions you've
     been waiting for! Explore our`,
-  },
+  }
 ];
 
 export const HomePageCustomer = () => {
@@ -96,7 +96,7 @@ export const HomePageCustomer = () => {
               ))}
             </div>
             <div>
-              <p className="text-center mx-2">
+              <p className="text-center mx-2 mt-3">
                 Welcome to our Latest Product Section, where innovation and
                 excellence meet to bring you the cutting-edge solutions you've
                 been waiting for! Explore our newest arrivals, handpicked to

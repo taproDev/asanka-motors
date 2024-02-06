@@ -4,8 +4,14 @@
 $_SERVER = "http://localhost:3000";
 $authReq = 'asanak-auth';
 
-header('Content-Type: application/json');
 header('Access-Control-Allow-Origin:'.$_SERVER.'');
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
+//vehicale types
+$helmet = 19;
+$bike = 19;
+$wheel = 19;
 
 class Database
 {

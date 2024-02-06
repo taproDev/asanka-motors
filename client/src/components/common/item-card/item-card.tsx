@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  ArrowRight,
-  Link,
-} from "react-bootstrap-icons";
+import { ArrowRight, Link } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
 
 import "./itemcard.css";
