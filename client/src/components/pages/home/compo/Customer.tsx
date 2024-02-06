@@ -32,7 +32,7 @@ const customerData = [
     note: `Welcome to our Latest Product Section, where innovation and
     excellence meet to bring you the cutting-edge solutions you've
     been waiting for! Explore our`,
-  }
+  },
 ];
 
 export const HomePageCustomer = () => {
@@ -81,12 +81,13 @@ export const HomePageCustomer = () => {
                   <div className="col-12 text-center">
                     <h4 className="fw-bold fs-4 my-2">{customer.name}</h4>
                     <img
+                      key={`img-${customer.id}`}
                       className="w-100 img-fluid rounded"
                       src={customer.img}
                       alt=""
                     />
                     <p className="fw-bold mt-1">{customer.post}</p>
-                    <p className="text-dark-50">
+                    <p key={`text-${customer.id}`} className="text-dark-50">
                       Welcome to our Latest Product Section, where innovation
                       and excellence meet to bring you the cutting-edge
                       solutions you've been waiting for! Explore our
