@@ -13,9 +13,24 @@ import { EMAIL, FACEBOOK, WHATSAPP } from "../../constants/AppConstants.ts";
 import { QuickNavbar } from "./nav-quick-filter.tsx";
 import { load_eror } from "../../../utils/load_errror_page.ts";
 import { fetchSearchProductData } from "../../../api/load-search-data-nav.ts";
+import { getcartItemsSessionData, useCart } from "../../../utils/cart-item-utils.ts";
 
 export const NavBar = () => {
   const [cartItemsNumber, setCartItemsNumber] = useState<number>(0);
+  const [cartItemValue, setCartItemValue] = useState<number>(0);
+  const { cartItems } = getcartItemsSessionData();
+  const {removeFromCart,addToCart} = useCart()
+
+  useEffect(() => {
+    setCartItemsNumber(cartItems.length);
+    let totalValue = 0;
+    cartItems.forEach((item) => {
+      totalValue += item.price * item.qty; // Multiply price by quantity
+    });
+    setCartItemValue(totalValue);
+  }, [cartItems,removeFromCart,addToCart,useCart]);
+  
+
   const navigate = useNavigate();
 
   const handleContactClick = (id: string) => {
@@ -157,7 +172,7 @@ export const NavBar = () => {
                       {cartItemsNumber}
                     </span>
                   </Link>
-                  <span className="fw-bold ms-3">Rs:2500.00</span>
+                  <span className="fw-bold ms-3">Rs:{cartItemValue}.00</span>
                 </div>
 
                 <div className="col-12 d-flex align-items-baseline ">

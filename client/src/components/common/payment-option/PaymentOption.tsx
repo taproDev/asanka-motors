@@ -16,7 +16,7 @@ export const PaymentOption = () => {
 
   return (
     <>
-      <div className="d-flex justify-content-center flex-column w-75 mt-3">
+      <div className="d-flex justify-content-center flex-column w-75 mx-auto mt-3">
         <Button
           className="px-3 mt-2 pe-auto btn btn-md border-0 buynow-btn fs-6"
           style={{ backgroundColor: "teal" }}

@@ -25,7 +25,7 @@ interface ISingleProduct {
 export const SingleProduct = () => {
   const location = useLocation();
   const [productData, setProductData] = useState<ISingleProduct>();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [mainImage, setMainImage] = useState();
   const [imageSrcArray, setImageSrcArray] = useState<string[]>([]);
   const [secImage , setSecImage] = useState();
