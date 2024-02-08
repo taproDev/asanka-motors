@@ -21,10 +21,7 @@ export const CartItem = ({ productid, price, qty = 1 }: ICartItem) => {
   useEffect(() => {
     const hasItem = cartItems.some((cartItem) => cartItem.productId === productid);
     setIsCartAdded(hasItem);
-  }, [productid, setIsCartAdded,cartItems]);
-
-  console.log(cartItems);
-  
+  }, [productid, setIsCartAdded,cartItems]);  
 
   return (
     <button
