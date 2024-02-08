@@ -31,9 +31,9 @@ export const CartItem = ({ productid, price, qty = 1 }: ICartItem) => {
       }}
     >
       {isCartAdded ? (
-        <CartFill className="text-danger fs-4 ms-1 pe-auto" />
+        <CartFill className="text-danger fs-3 ms-1 pe-auto" />
       ) : (
-        <Cart className="text-danger fs-4 ms-1 pe-auto" />
+        <Cart className="text-danger fs-3 ms-1 pe-auto" />
       )}
     </button>
   );

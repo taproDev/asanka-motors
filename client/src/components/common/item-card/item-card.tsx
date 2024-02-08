@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { BoxArrowUpRight, Link } from "react-bootstrap-icons";
-import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-bootstrap-icons";
 import "./itemcard.css";
 import { CartItem } from "../cart-item/CartItem.tsx";
-import { getcartItemsSessionData, useCart } from "../../../utils/cart-item-utils.ts";
+import QtyItem from "../item-qty/QtyItem.tsx";
+import { UseItemcardQty } from "../../../utils/item.qty-utils.ts";
 
 interface itemCardProp {
   title: string;
@@ -25,11 +24,7 @@ export const Itemcard = ({
 }: itemCardProp) => {
   //cart item adding and emoving
   const [imageSrc, setImageSrc] = useState<string>("");
-  const navigate = useNavigate();
-
-  const onBuyNowClick = (productId: number | string) => {
-    navigate(`/product?id=${productId}`);
-  };
+  const { quantity, handleIncrease, handleDecrease } = UseItemcardQty();
 
   useEffect(() => {
     const loadImage = async () => {
@@ -77,14 +72,11 @@ export const Itemcard = ({
         </div>
         <div className="d-flex flex-row justify-content-center align-items-center mt-2">
           <CartItem productid={productid} price={price} />
-          <button
-            className="ms-2 px-3 pe-auto btn btn-sm btn-primary border-0 buynow-btn fs-6"
-            onClick={() => {
-              onBuyNowClick(productid);
-            }}
-          >
-            see <BoxArrowUpRight className="fw-bold mb-1" />
-          </button>
+          <QtyItem
+            quantity={quantity}
+            onIncrease={handleIncrease}
+            onDecrease={handleDecrease}
+          />
         </div>
       </div>
     );
@@ -123,14 +115,11 @@ export const Itemcard = ({
           </div>
           <div className="d-flex flex-row justify-content-center align-items-start mt-1">
             <CartItem productid={productid} price={price} />
-            <button
-              className="ms-2 px-3 pe-auto btn btn-sm btn-primary border-0 buynow-btn fs-6"
-              onClick={() => {
-                onBuyNowClick(productid);
-              }}
-            >
-              see <BoxArrowUpRight className="fw-bold mb-1" />
-            </button>
+            <QtyItem
+              quantity={quantity}
+              onIncrease={handleIncrease}
+              onDecrease={handleDecrease}
+            />
           </div>
         </div>
       </div>
