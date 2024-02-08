@@ -29,11 +29,11 @@ export const SingleProduct = () => {
   const [mainImage, setMainImage] = useState();
   const [imageSrcArray, setImageSrcArray] = useState<string[]>([]);
   const [secImage , setSecImage] = useState();
-
+  const searchParams = new URLSearchParams(location.search);
+  const productId = searchParams.get("id");
+  
+  
   useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    const productId = searchParams.get("id");
-
     const fetchData = async () => {
       try {
         if (productId) {
@@ -69,7 +69,7 @@ export const SingleProduct = () => {
 
   const handelBuyNow = () => {};
 
-  const { quantity, handleIncrease, handleDecrease } = UseItemcardQty();
+  const { quantity, handleIncrease, handleDecrease } = UseItemcardQty(productId,productData?.price);
 
   return (
     <>

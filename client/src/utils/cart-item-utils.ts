@@ -12,27 +12,35 @@ let cartItems: CartItem[] = [];
 export const useCart = () => {
   const [isCartAdded, setIsCartAdded] = useState(false);
 
-// Function to add item to cart
-const addToCart = (productId: number, price: number, qty: number) => {
-  const newItem: CartItem = { productId, price, qty };
-  
-  const cartItemsString = sessionStorage.getItem("cartItems");
-  const cartItems_sess = cartItemsString ? JSON.parse(cartItemsString) : [];
+  // Function to add item to cart
+  const addToCart = (productId: number, price: number, qty: number) => {
+    const newItem: CartItem = { productId, price, qty };
 
-  if (cartItems_sess.length === 0) {
-    cartItems.push(newItem);
-  } else {
-    cartItems_sess.push(newItem);
+    const cartItemsString = sessionStorage.getItem("cartItems");
+    let cartItems_sess: CartItem[] = cartItemsString ? JSON.parse(cartItemsString) : [];
+
+    const index = cartItems_sess.findIndex((item) => item.productId === productId);
+
+    if (index !== -1) {
+      const updatedCartItem = { ...cartItems_sess[index], qty: qty };
+      cartItems_sess[index] = updatedCartItem;
+      console.log(cartItems_sess);
+      console.log(index);
+      
+    } else {
+      cartItems_sess.push(newItem);
+    }
     updateSessionStorage(cartItems_sess);
-  }
-};
 
+  };
 
   //cart remove
-  const removeFromCart = (productid: number) => {
+  const removeFromCart = (productId: number) => {
     const cartItemsString = sessionStorage.getItem("cartItems");
     const cartItems_rem = cartItemsString ? JSON.parse(cartItemsString) : [];
-    const index = cartItems_rem.findIndex((item) => item.productId === productid);
+    const index = cartItems_rem.findIndex(
+      (item) => item.productId === productId
+    );
     if (index !== -1) {
       const updatedCartItems = [
         ...cartItems_rem.slice(0, index),
@@ -41,15 +49,14 @@ const addToCart = (productId: number, price: number, qty: number) => {
       cartItems = updatedCartItems;
       updateSessionStorage(updatedCartItems);
     } else {
-      alert("Something went wrong, Please try again!");
+      alert("Something went wrong. Please try again!");
     }
   };
 
-  //tempoy cart item store in sesssion
-  const updateSessionStorage = (updatedCartItems:any) => {
+  //temporary cart item store in session
+  const updateSessionStorage = (updatedCartItems: CartItem[]) => {
     sessionStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
   };
-  
 
   return { cartItems, addToCart, removeFromCart, isCartAdded, setIsCartAdded };
 };

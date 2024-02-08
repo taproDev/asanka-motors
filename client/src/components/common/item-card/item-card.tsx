@@ -24,7 +24,7 @@ export const Itemcard = ({
 }: itemCardProp) => {
   //cart item adding and emoving
   const [imageSrc, setImageSrc] = useState<string>("");
-  const { quantity, handleIncrease, handleDecrease } = UseItemcardQty();
+  const { quantity, handleIncrease, handleDecrease } = UseItemcardQty(productid,price);
 
   useEffect(() => {
     const loadImage = async () => {
