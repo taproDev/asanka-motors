@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./itemcard.css";
 import { CartItem } from "../cart-item/CartItem.tsx";
+import { getcartItemsSessionData, useCart } from "../../../utils/cart-item-utils.ts";
 
 interface itemCardProp {
   title: string;

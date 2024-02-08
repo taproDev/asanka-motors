@@ -11,12 +11,10 @@ import {
 } from "react-bootstrap-icons";
 import { EMAIL, FACEBOOK, WHATSAPP } from "../../constants/AppConstants.ts";
 import { QuickNavbar } from "./nav-quick-filter.tsx";
-import { useCart } from "../../../utils/cart-utils.ts";
 import { load_eror } from "../../../utils/load_errror_page.ts";
 import { fetchSearchProductData } from "../../../api/load-search-data-nav.ts";
 
 export const NavBar = () => {
-  const { cartItems, addToCart, removeFromCart } = useCart();
   const [cartItemsNumber, setCartItemsNumber] = useState<number>(0);
   const navigate = useNavigate();
 
@@ -30,20 +28,16 @@ export const NavBar = () => {
 
   const [searchingItem, setSearchingItem] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
-  const [loading, setLoading] = useState(true);
   const [mockSuggestions, setMockSuggestions] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setLoading(true);
         const data = await fetchSearchProductData(searchingItem);
         await setMockSuggestions(data.proddata);
       } catch (error) {
         console.error("Error fetching data:", error);
-        //load_eror();
-      } finally {
-        setLoading(false);
+        load_eror();
       }
     };
 

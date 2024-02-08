@@ -1,16 +1,30 @@
-import React, { useState } from "react";
-import { CartFill ,Cart } from "react-bootstrap-icons";
-import { useCart } from "../../../utils/cart-utils.ts";
+import React, { useEffect } from "react";
+import { CartFill, Cart } from "react-bootstrap-icons";
+import { getcartItemsSessionData, useCart } from "../../../utils/cart-item-utils.ts";
 
+interface ICartItem {
+  productid: any;
+  price: any;
+  qty?: number;
+}
 
-export const CartItem = (productid:any,price:any) => {
-  const { addToCart, removeFromCart } = useCart();
-  const [isCartAdded, setIsCartAdded] = useState(false);
+export const CartItem = ({ productid, price, qty = 1 }: ICartItem) => {
+  const { addToCart, removeFromCart, isCartAdded, setIsCartAdded } = useCart();
+  const { cartItems } = getcartItemsSessionData();
+
 
   const handleCartClick = (pid: number, price: number) => {
     setIsCartAdded(!isCartAdded);
-    isCartAdded ? removeFromCart(pid) : addToCart(pid, price);
+    isCartAdded ? removeFromCart(pid) : addToCart(pid, price, qty);
   };
+
+  useEffect(() => {
+    const hasItem = cartItems.some((cartItem) => cartItem.productId === productid);
+    setIsCartAdded(hasItem);
+  }, [productid, setIsCartAdded,cartItems]);
+
+  console.log(cartItems);
+  
 
   return (
     <button
