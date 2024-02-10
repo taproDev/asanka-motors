@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./AddedCartItem.css";
 
-//@ts-ignore
-import img from "../../../assets/product/img_6561a8f7e8a13_7c93d4c0-7c76-450c-8a58-4fd2ba9c2171.jpeg";
 import { CartItem } from "../cart-item/CartItem.tsx";
 import QtyItem from "../item-qty/QtyItem.tsx";
 import { Link } from "react-bootstrap-icons";
 import { UseItemcardQty } from "../../../utils/item.qty-utils.ts";
 import { fetchCartProductData } from "../../../api/load-cart-product.ts";
 import { Loading } from "../loading/Loading.tsx";
+import { useCart } from "../../../utils/cart-item-utils.ts";
 
 export const AddedCartItem = (pdata: any) => {
   const data = pdata.data;
@@ -16,6 +15,7 @@ export const AddedCartItem = (pdata: any) => {
     data.productId,
     data.price
   );
+  const {cartItems} = useCart();
   const [loading, setLoading] = useState(false);
   const [productData, setProductData] = useState<any>();
   const [imageSrc, setImageSrc] = useState<any>("");
@@ -48,7 +48,7 @@ export const AddedCartItem = (pdata: any) => {
     };
 
     fetchData();
-  }, []);
+  }, [cartItems]);
 
   return (
     <>

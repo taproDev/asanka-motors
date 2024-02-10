@@ -28,7 +28,7 @@ export const NavBar = () => {
       totalValue += item.price * item.qty; // Multiply price by quantity
     });
     setCartItemValue(totalValue);
-  }, [cartItems,removeFromCart,addToCart,useCart]);
+  }, [cartItems,removeFromCart,addToCart,useCart,getcartItemsSessionData]);
   
 
   const navigate = useNavigate();
