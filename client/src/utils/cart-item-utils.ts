@@ -31,11 +31,11 @@ export const useCart = () => {
       cartItems_sess.push(newItem);
     }
     updateSessionStorage(cartItems_sess);
-
   };
 
   //cart remove
   const removeFromCart = (productId: number) => {
+
     const cartItemsString = sessionStorage.getItem("cartItems");
     const cartItems_rem = cartItemsString ? JSON.parse(cartItemsString) : [];
     const index = cartItems_rem.findIndex(

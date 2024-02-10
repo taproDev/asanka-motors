@@ -3,14 +3,12 @@ import { Loading } from "../../common/loading/Loading.tsx";
 import { getcartItemsSessionData } from "../../../utils/cart-item-utils.ts";
 import { PaymentOption } from "../../common/payment-option/PaymentOption.tsx";
 import { AddedCartItem } from "../../common/added-cart-item/AddedCartItem.tsx";
+import { UseCartReload, UseCartTotal } from "../../../utils/cart-total-val-cal.ts";
 
 export const CartItemPage = () => {
   const [loading, setLoading] = useState(false);
   const { cartItems } = getcartItemsSessionData();
-
-  useEffect(() => {
-    console.log("data fetch");
-  }, [getcartItemsSessionData()]);
+  const { cartItemValue, cartItemsNumber } = UseCartTotal();
 
   return (
     <>
@@ -32,7 +30,9 @@ export const CartItemPage = () => {
 
               <div className="d-flex flex-column justify-content-center col-md-4 col-12">
                 <div>
-                  <h1 className="text-center fs-3 fw-bold">Total Amount - Rs:250000.00</h1>
+                  <h1 className="text-center fs-3 fw-bold">
+                    Total Amount - Rs:{cartItemValue}.00
+                  </h1>
                 </div>
                 <div>
                   <PaymentOption />

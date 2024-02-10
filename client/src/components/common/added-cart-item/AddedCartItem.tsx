@@ -77,7 +77,7 @@ export const AddedCartItem = (pdata: any) => {
                 </div>
               </div>
               <div className="col-7 d-flex flex-column ms-3">
-                <p className="fw-bold" style={{ fontSize: "0.8rem" }}>
+                <p className="fw-bold" style={{ fontSize: "1rem" }}>
                   {productData.title}
                 </p>
                 <div>

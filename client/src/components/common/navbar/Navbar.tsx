@@ -13,23 +13,10 @@ import { EMAIL, FACEBOOK, WHATSAPP } from "../../constants/AppConstants.ts";
 import { QuickNavbar } from "./nav-quick-filter.tsx";
 import { load_eror } from "../../../utils/load_errror_page.ts";
 import { fetchSearchProductData } from "../../../api/load-search-data-nav.ts";
-import { getcartItemsSessionData, useCart } from "../../../utils/cart-item-utils.ts";
+import { UseCartTotal } from "../../../utils/cart-total-val-cal.ts";
 
 export const NavBar = () => {
-  const [cartItemsNumber, setCartItemsNumber] = useState<number>(0);
-  const [cartItemValue, setCartItemValue] = useState<number>(0);
-  const { cartItems } = getcartItemsSessionData();
-  const {removeFromCart,addToCart} = useCart()
-
-  useEffect(() => {
-    setCartItemsNumber(cartItems.length);
-    let totalValue = 0;
-    cartItems.forEach((item) => {
-      totalValue += item.price * item.qty; // Multiply price by quantity
-    });
-    setCartItemValue(totalValue);
-  }, [cartItems,removeFromCart,addToCart,useCart,getcartItemsSessionData]);
-  
+  const {cartItemValue,cartItemsNumber} = UseCartTotal()
 
   const navigate = useNavigate();
 
